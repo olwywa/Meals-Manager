@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Overlock:ital,wght@1,900&family=Poppins:wght@500&display=swap');
+
+body {
+    background-color: #EEC643 !important;
+}
+
+#start-btn {
+    background-color: rgba(175, 94, 6, 0.82);
+    width: fit-content;
+    margin-right: auto;
+    margin-left: auto;
+    border: none;
+    border-radius:30px;
+    color: #141414;
+    padding: 15px 32px;
+    text-align: center;
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;}
+
+#start-btn:hover {
+    background-color: #eef0f293;
+}
+
+.app-name {
+    font-family: 'Overlock', cursive;
+    font-size: 44px;
+    margin-bottom: 0;
+}
+
+.app-description{
+    font-family: 'Poppins', sans-serif;
+    color: #141414;
+    font-size: 16px;
+    margin-bottom: 35px;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.container {
+    margin: 5%; }
+
+
+.formula {
+background-color: #eef0f293;
+border-radius: 30px;
+margin-right:auto;
+margin-left:auto;
+text-align: center;
+padding: 20px;
+font-family: "Poppins";
+}
+
+/*  SOCIALS   */
+.socials {
+    position: fixed;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.socials a {
+    display: block;
+    text-align: center;
+    padding: 16px;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 20px;
+}
+
+.facebook {background: #3B5998;
+    color: white;
+}
+
+.linkedin {
+    background: #007bb5;
+    color: white;
+}
+
+.instagram {
+    background: #780a43;
+    color: white;
+}
+
+
+.socials i:hover {
+    color: #bd600f;
+}

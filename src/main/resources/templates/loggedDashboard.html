@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<HTML xmlns:th="http://www.thymeleaf.org" lang="en">
+<HEAD>
+    <TITLE>Manage your meals</TITLE>
+    <meta name="keywords" content="diet, menu, meals, food, dietician"/>
+    <meta name="author" content="Oliwia Rędzikowska"/>
+    <meta http-equiv="cache-control" content="no-cache"/>
+    <meta charset="utf-8"/>
+
+    <!-- LINKS -->
+
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/userview.css}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/46a8c214cc.js" crossorigin="anonymous"></script>
+</HEAD>
+<BODY>
+<nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="#">Meals Manager</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+                <a class="nav-link" th:href="@{/all}">Home<i class="fas fa-home"></i> <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/editProfile">Profile <i class="fas fa-user-circle"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/addMeal}">Add New Meal <i class="fas fa-plus"></i></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" th:href="@{/logOut}">Log Out <i class="fas fa-sign-out-alt"></i></i></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<div class="container-fluid meals-con">
+    <h3>Your meals</h3>
+
+    <div class="container meals-list-con">
+        <ul class="list-group">
+            <li class="list-group-item" th:each="meal : ${meals}">
+                <div class="card-deck">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-4 wrapper">
+                                <img th:src="@{${meal.getPhotoImagePath}}" class="card-img-top img-fluid"
+                                     alt="Meal image">
+                            </div>
+                            <div class="col-8">
+                                <h5 class="card-title" style="display: block" th:text="${meal.name}">Card title</h5>
+                                <p class="card-text" style="display: block"><small class="text-muted">Calories: <span
+                                        th:text="${meal.calories}"></span> | Cook duration (mins): <span
+                                        th:text="${meal.cookDuration}"></span> </small></p>
+                                <p class="col p-2 m-0" style="display: block" th:text="${meal.recipe}">Text next to the
+                                    right of the image</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="socials">
+        <a href="#" class="facebook"><i class='fab fa-facebook'></i></a>
+        <a href="#" class="instagram"><i class='fab fa-instagram'></i></a>
+        <a href="#" class="linkedin"><i class='fab fa-linkedin'></i></a>
+    </div>
+</div>
+</BODY>
+</HTML>

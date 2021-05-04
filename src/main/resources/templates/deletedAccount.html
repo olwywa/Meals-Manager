@@ -8,23 +8,23 @@
     <meta charset="utf-8"/>
 
     <!-- LINKS -->
+
     <link rel="stylesheet" type="text/css" th:href="@{/styles/main.css}"/>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <script src="https://kit.fontawesome.com/46a8c214cc.js" crossorigin="anonymous"></script>
 </HEAD>
 <BODY>
 <div class="container p-3 my-3" style="text-align:center;">
     <img th:src="@{/images/foodicon.png}">
     <p class="app-name">Meals Manager</p>
+    <p>SUCCESS</p>
+    <p>You have deleted your Account.</p>
     <p class="app-description">Start planning your meals and <br>get ready for being fit and healthy.</p>
-    <a th:href="@{/login}" id="start-btn" type="button" class="btn btn-primary">Get started</a>
-</div>
-
-<div class="socials">
-    <a href="#" class="facebook"><i class='fab fa-facebook'></i></a>
-    <a href="#" class="instagram"><i class='fab fa-instagram'></i></a>
-    <a href="#" class="linkedin"><i class='fab fa-linkedin'></i></a>
+    <a href="/login"><button class="w3-button w3-black" type="submit">Get started</button></a>
+    <div class="socials">
+        <a href="#"><i class='fab fa-facebook'></i></a>
+        <a href="#"><i class='fab fa-instagram'></i></a>
+        <a href="#"><i class='fab fa-linkedin'></i></a>
+    </div>
 </div>
 </BODY>
 </HTML>

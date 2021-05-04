@@ -3,7 +3,11 @@ package com.example.mealsmanagerapp.controllers;
 import com.example.mealsmanagerapp.models.User;
 import com.example.mealsmanagerapp.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.security.auth.login.AccountNotFoundException;
 import java.util.Optional;
@@ -12,23 +16,11 @@ import java.util.Optional;
 @RequestMapping(path = "/user")
 public class UserController {
 
-//    @GetMapping("home")
-//    public String home(){
-//        return "user/home";
-//    }
-
     private final UserService userService;
 
     @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
-    }
-
-    @PostMapping()
-    public String createUser(@RequestBody User user) {
-
-        userService.saveUser(user);
-        return "redirect:/login.html";
     }
 
     @PutMapping(path = "/edit/{id}")
@@ -39,9 +31,10 @@ public class UserController {
         userService.updateUser(id, name, email, password);
     }
 
-    @DeleteMapping(path = "{id}")
-    public void deleteUser(@PathVariable("id") Long id) {
+    @DeleteMapping(path = "/{id}")
+    public String deleteUser(@PathVariable("id") Long id) {
         userService.deleteUser(id);
+        return "redirect:/deletedAccount";
     }
 
     @GetMapping("/{id}")

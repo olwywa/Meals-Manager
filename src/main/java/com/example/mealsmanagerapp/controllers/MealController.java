@@ -1,45 +1,37 @@
 package com.example.mealsmanagerapp.controllers;
 
 import com.example.mealsmanagerapp.models.Meal;
-import com.example.mealsmanagerapp.models.User;
 import com.example.mealsmanagerapp.services.MealService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/meal")
+@RequestMapping("/meals")
 public class MealController {
 
-    @Autowired
-    private MealService mealService;
+    private final MealService mealService;
 
+    @Autowired
     public MealController(MealService mealService) {
         this.mealService = mealService;
     }
 
-    @PostMapping(value = "/add")
-    public String createMeal(@RequestBody Meal meal) {
-        mealService.save(meal);
-        return "redirect:/dashboard.html";
+
+    @PutMapping(path = "/edit/{id}")
+    public void update(@PathVariable("id") Long id,
+                       @RequestParam(required = false) String name,
+                       @RequestParam(required = false) String recipe,
+                       @RequestParam(required = false) int calories,
+                       @RequestParam(required = false) int cookDuration,
+                       @RequestParam(required = false) String photo) {
+        mealService.update(id, name, recipe, calories, cookDuration, photo);
     }
 
-    @PutMapping
-    public Meal update(@RequestBody Meal meal) {
-        meal.setName(meal.getName());
-        meal.setRecipe(meal.getRecipe());
-        meal.setCalories(meal.getCalories());
-        meal.setCookDuration(meal.getCookDuration());
-        meal.setPhoto(meal.getPhoto());
-        Meal updatedMeal = mealService.save(meal);
-        return updatedMeal;
-    }
-
-    @GetMapping
-    public void delete(@RequestParam Long id) {
+    @DeleteMapping(path = "/{id}")
+    public String delete(@PathVariable("id") Long id) {
         mealService.delete(id);
+        return "redirect:/loggedDashboard";
     }
 
     @GetMapping("/{id}")
@@ -52,8 +44,4 @@ public class MealController {
         return mealService.findMealByName(name);
     }
 
-    @GetMapping("/all")
-    public List<Meal> findAll() {
-        return mealService.getAll();
-    }
 }

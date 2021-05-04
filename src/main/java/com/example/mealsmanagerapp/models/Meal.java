@@ -9,15 +9,26 @@ public class Meal {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    @Column(name="recipe", columnDefinition = "TEXT")
     private String recipe;
     private int calories;
     private int cookDuration;
+    @Column(length = 64)
     private String photo;
 
     public Meal() {
     }
 
     public Meal(String name, String recipe, int calories, int cookDuration, String photo) {
+        this.name = name;
+        this.recipe = recipe;
+        this.calories = calories;
+        this.cookDuration = cookDuration;
+        this.photo = photo;
+    }
+
+    public Meal(Long id, String name, String recipe, int calories, int cookDuration, String photo) {
+        this.id = id;
         this.name = name;
         this.recipe = recipe;
         this.calories = calories;
@@ -71,5 +82,12 @@ public class Meal {
 
     public void setPhoto(String photo) {
         this.photo = photo;
+    }
+
+    @Transient
+    public String getPhotoImagePath() {
+        if (photo == null || id == null) return null;
+
+        return "/meal-photos/" + id + "/" + photo;
     }
 }

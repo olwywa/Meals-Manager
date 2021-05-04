@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<HTML xmlns:th="http://www.thymeleaf.org" lang="en">
+<HEAD>
+    <TITLE>Manage your meals</TITLE>
+    <meta name="keywords" content="diet, menu, meals, food, dietician"/>
+    <meta name="author" content="Oliwia Rędzikowska"/>
+    <meta http-equiv="cache-control" content="no-cache"/>
+    <meta charset="utf-8"/>
+
+    <!-- LINKS -->
+
+    <link rel="stylesheet" type="text/css" th:href="@{/styles/main.css}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/46a8c214cc.js" crossorigin="anonymous"></script>
+</HEAD>
+<BODY>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/loggedDashboard">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/editProfile">Profile</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link disabled" href="#">Meals</a>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+
+<div>
+    <h3>Your meals</h3>
+    <button>Add new</button>
+</div>
+
+    <div class="socials">
+        <a href="#"><i class='fab fa-facebook'></i></a>
+        <a href="#"><i class='fab fa-instagram'></i></a>
+        <a href="#"><i class='fab fa-linkedin'></i></a>
+    </div>
+</BODY>
+</HTML>

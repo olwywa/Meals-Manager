@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Overlock:ital,wght@1,900&family=Poppins:wght@500&display=swap');
+
+body {
+    background-color: #EEC643 !important;
+    padding: 5px;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.formula {
+    background-color: #eef0f293;
+    border-radius: 30px;
+    padding: 10px;
+    /*margin: auto;*/
+}
+
+#signin-btn, #signup-btn {
+    background-color: rgba(175, 94, 6, 0.82);
+    width: fit-content;
+    height: fit-content;
+    margin-right: auto;
+    margin-left: auto;
+    border: none;
+    border-radius:30px;
+    color: #141414;
+    padding: 15px 32px;
+    text-align: center;
+    display: block;
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;}
+
+#signin-btn:hover, #signup-btn:hover {
+    background-color: #eef0f293;
+}
+
+.centralize {
+    text-align: center;
+}

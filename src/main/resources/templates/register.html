@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <TITLE>Create an account. Manage your meals</TITLE>
+    <meta name="keywords" content="diet, menu, meals, food, dietician"/>
+    <meta name="author" content="Oliwia Rędzikowska"/>
+    <meta http-equiv="cache-control" content="no-cache"/>
+    <meta charset="utf-8"/>
+
+    <!-- LINKS -->
+    <link href="styles/forms.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/46a8c214cc.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+    <a href="http://localhost:8080/"><img th:src="@{/images/foodicon.png}"/></a>
+    <div class="container w-50 formula" style="margin-top: 20px; margin-bottom: 20px;">
+        <form action="#" th:action="@{/register}" th:object="${user}" method="post" role="form">
+            <h1 style="text-align:center; font-family: 'Poppins', sans-serif;">Registration Form</h1>
+            <p style="text-align:center;">Please fill in this form to create an account.</p>
+
+            <!-- USERNAME -->
+            <div class="form-group mb-3">
+                <label>Name:</label>
+                <input id="username" type="text" th:field="*{name}" required minlength="3" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+
+            <!-- EMAIL -->
+            <div class="form-group mb-3">
+                <label style="display: inline-block;" >E-mail:</label>
+                <input id="email" type="email" th:field="*{email}" required minlength="5" class="form-control" placeholder="E-mail" aria-label="E-mail" aria-describedby="basic-addon2">
+            </div>
+
+            <!-- PASSWORD -->
+            <div class="form-group mb-3">
+                <label style="display: inline-block;" >Password:</label>
+                <input id="psw" type="password" th:field="*{password}" required minlength="4" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon2">
+            </div>
+
+            <!-- REPEAT PASSWORD -->
+            <div class="form-group mb-3">
+                <label style="display: inline-block;" >Confirm password:</label>
+                <input id="conf_psw" type="password" required minlength="4" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon2">
+            </div>
+
+            <!-- TERMS OF USE -->
+            <div class="form-check" style="margin-bottom: 10px;">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">I agree with the Terms of Use</label>
+            </div>
+
+            <div class="centralize">
+                <button type="submit" id="signup-btn" class="btn btn-primary">Submit</button>
+            </div>
+
+            <h2><span class="text-success" th:utext="${successMessage}"></span></h2>
+        </form>
+    </div>
+</div>
+
+</body>
+</html>

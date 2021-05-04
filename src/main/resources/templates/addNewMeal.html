@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add new meal</title>
+
+    <!-- LINKS -->
+    <link href="styles/forms.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/46a8c214cc.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+    <div class="container w-50 formula" style="margin-top: 20px; margin-bottom: 20px;">
+        <h3 style="text-align: center; font-family: 'Poppins', sans-serif;">Add New Meal!</h3>
+        <p style="text-align: center;">Fill out these fields to add your new meal.</p>
+        <form action="#" th:action="@{/addMeal}" th:object="${meal}" method="post" enctype="multipart/form-data"
+              role="form">
+            <!-- NAME -->
+            <div class="form-group mb-3">
+                <label>Name:</label>
+                <input id="mealName" type="text" th:field="*{name}" required minlength="3" class="form-control"
+                       placeholder="Name" aria-label="Name" aria-describedby="basic-addon1">
+            </div>
+
+            <!-- RECIPE -->
+            <div class="form-group mb-3">
+                <label style="display: inline-block;">Description/Recipe:</label>
+                <input id="mealRecipe" type="text" th:field="*{recipe}" required minlength="5" class="form-control"
+                       placeholder="Description" aria-label="Description" aria-describedby="basic-addon2">
+            </div>
+
+            <!-- CALORIES -->
+            <div class="form-group mb-3">
+                <label style="display: inline-block;">Calories (kcal):</label>
+                <input id="mealCalories" type="number" th:field="*{calories}" class="form-control"
+                       placeholder="Calories"
+                       aria-label="Calories" aria-describedby="basic-addon2">
+            </div>
+
+            <!-- COOK DURATION -->
+            <div class="form-group mb-3">
+                <label style="display: inline-block;">Cook duration (mins):</label>
+                <input id="mealCookDuration" type="number" th:field="*{cookDuration}" class="form-control"
+                       placeholder="Cook duration (mins)"
+                       aria-label="Cook duration (mins)" aria-describedby="basic-addon2">
+            </div>
+
+            <div class="input-group mb-3">
+                <div class="custom-file">
+                    <input type="file" name="file" th:field="*{photo}" class="custom-file-input" accept="image/*"
+                           id="mealPhoto">
+                    <label class="custom-file-label" for="mealPhoto">Choose file</label>
+                </div>
+            </div>
+
+            <a th:href="@{/all}" type="button" class="btn btn-primary">Back</a>
+            <button type="submit" class="btn btn-primary float-right">Submit</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>

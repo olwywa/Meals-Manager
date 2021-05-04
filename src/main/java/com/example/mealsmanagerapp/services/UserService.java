@@ -38,6 +38,26 @@ public class UserService {
         }
     }
 
+    public User findUserByEmail(String email) {
+        Optional<User> userDb = userRepository.findByEmail(email);
+
+        if (userDb.isPresent()) {
+            return userDb.get();
+        } else {
+            throw new RuntimeException("User not found with email: " + email);
+        }
+    }
+
+    public boolean findIfUserExistsByEmail(String email) {
+        Optional<User> userDb = userRepository.findByEmail(email);
+
+        if (userDb.isPresent()) {
+            throw new RuntimeException("E-mail is taken. Found a user with: " + email);
+        } else {
+            return false;
+        }
+    }
+
     public User saveUser(User user) {
         return userRepository.save(user);
     }
@@ -67,24 +87,6 @@ public class UserService {
         userRepository.save(userExists);
 
         return userExists;
-
-
-//        Optional<User> userOptional = userRepository.findByEmail(user.getEmail());
-//        User userDb = null;
-//
-//        if(userOptional.isPresent()) {
-//            userDb = userOptional.get();
-//
-//            userDb.setId(user.getId());
-//            userDb.setName(user.getName());
-//            userDb.setEmail(user.getEmail());
-//            userDb.setPassword(user.getPassword());
-//            userDb.setMeals(user.getMeals());
-//            userRepository.save(userDb);
-//            return userDb;
-//        } else {
-//            throw new RuntimeException("User not found with id " + user.getId());
-//        }
     }
 
     public void deleteUser(Long id) {
@@ -93,6 +95,21 @@ public class UserService {
             throw new RuntimeException("User not found with id " + id);
         } else {
             userRepository.deleteById(id);
+        }
+    }
+
+    public boolean checkAuth(String password, String email) {
+        Optional<User> userDb = userRepository.findByEmail(email);
+
+        if (userDb.isPresent()) {
+            User userExists = userDb.get();
+            if (userExists.getPassword().equals(password) && userExists.getEmail().equals(email)) {
+                return true;
+            } else {
+                throw new IllegalStateException("Password or provided e-mail is wrong. Try again.");
+            }
+        } else {
+            throw new IllegalStateException("User does not exists. Create an account.");
         }
     }
 }
