@@ -20,6 +20,18 @@
             <h1 style="text-align: center; font-family: 'Poppins', sans-serif;">Welcome!</h1>
             <p style="text-align: center;">Please, sign in</p>
 
+            <div th:if="${param.registeredSuccess}" class="alert alert-success">
+                SUCCESS! You have created an Account. Log in now!
+            </div>
+
+            <div th:if="${param.logout}" class="alert alert-success">
+                You have been logged out.
+            </div>
+
+            <div th:if="${param.error}" class="alert alert-danger">
+                Invalid e-mail or password.
+            </div>
+
             <!-- EMAIL -->
             <div class="form-group mb-3">
                 <label style="display: inline-block;" >E-mail:</label>

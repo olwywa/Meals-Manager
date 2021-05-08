@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
+
+<!-- Fragment #1 : Header files contains css and js references -->
+<head th:fragment="headerfiles">
+    <title>Manage your meals.</title>
+    <meta charset="UTF-8"/>
+    <link th:href="@{/styles/forms.css}" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://kit.fontawesome.com/46a8c214cc.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<!-- Fragment #2 : Navbar contains nav links -->
+<div th:fragment="nav">
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#">Meals Manager</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/all}">Home<i class="fas fa-home"></i> <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/editProfile">Profile <i class="fas fa-user-circle"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/addMeal}">Add New Meal <i class="fas fa-plus"></i></a>
+                </li>
+
+                <form class="form-inline my-2 my-lg-0 nav-item" form-method="post" th:action="@{/logout}">
+                    <button class="nav-link" type="submit">Log Out <i class="fas fa-sign-out-alt"></i></i></button>
+                </form>
+            </ul>
+        </div>
+    </nav>
+</div>
+</body>
+</html>
